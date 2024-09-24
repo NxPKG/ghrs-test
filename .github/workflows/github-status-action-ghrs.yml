@@ -1,0 +1,17 @@
+name: GHRS:ghrs
+on:
+  schedule:
+    - cron: "0 23 * * *"
+  workflow_dispatch: # Allow for running this manually.
+
+jobs:
+  j1:
+    name: github-status-action
+    runs-on: ubuntu-latest
+    steps:
+      - name: GHRS
+        uses: khulnasoft-lab/github-status-action@HEAD
+        with:
+          ghpagesprefix: https://nxpkg.github.io/ghrs-test
+          repository: khulnasoft-lab/github-status-action
+          ghtoken: ${{ secrets.GITHUB_TOKEN }}
